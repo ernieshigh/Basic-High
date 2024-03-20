@@ -26,22 +26,24 @@ function high_name_setup() {
 		add_theme_support( "title-tag" );
 	
 	// add feed
-		add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'automatic-feed-links' );
 		
 	// add thumbnail
-		add_theme_support( 'post-thumbnails' );
-		add_image_size( 'feature-thumb', 300, 9999 );    
-		add_image_size( 'post-thumbnail', 200, 200, true);
-		add_theme_support( 'html5', array( 'search-form' ) );
+	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'feature-thumb', 300, 9999 );    
+	add_image_size( 'post-thumbnail', 200, 200, true); 
+	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 		
 	//register  menu option
-		add_action( 'init', 'basic_high_register_menus' );
+	add_action( 'init', 'basic_high_register_menus' );
 	
-	 ;
-	 add_theme_support( "responsive-embeds" ) ;
-	  add_theme_support( "align-wide" ) ;
-	  add_editor_style() ;
+	 // add editor styles 
+	add_theme_support( "responsive-embeds" ) ;
+	add_theme_support( "align-wide" ) ;
+	add_editor_style() ;
+
 	// block support
+						 
 	add_theme_support( "wp-block-styles" );
 	add_theme_support( "responsive-embeds" ) ;
 	add_theme_support( "align-wide" ) ;
@@ -51,7 +53,9 @@ function high_name_setup() {
 							 
 	// set content width
 	if ( ! isset( $content_width ) ) $content_width = 1280;
-	add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );// add custom header
+	
+	
+	// add custom header
 	$header = array(
 				'random-default'         => false,
 				'height'                 => 100,

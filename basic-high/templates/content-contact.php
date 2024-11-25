@@ -8,10 +8,6 @@
 include get_theme_file_path('/inc/high-form.php');  
 
 ?>
-
-<style>
-	.robot{display: none;}
-</style>
 	<div class="container page-container">
 		
 		<div class="page-meta" role="header"><h1 class="page-title"> <?php  get_the_title(); ?> </h1></div> 
@@ -55,123 +51,15 @@ include get_theme_file_path('/inc/high-form.php');
 						<input type="checkbox" id="high_term" name="high_term" onblur="high_validate(this)"  > 	
 						I understand that this form is for demostrative purposes. It does save my input to the database. However, your information will not be used in any way, shape or form and will be automatically deleted in 24hrs. Ernies High does not use cookies. <span class="red" class="red">*</span> </label>
 					</div> 		
-						 <label style="display: none">why are you checking this?<input type="text" id="high_human" name="high_human" class="robot"></label> 
+						 <label style="display: none">why are you checking this?<input type="text" style="display: none;" id="high_human" name="high_human"></label> 
 				 	
 					<input id="high_submit" name="high_submit" type="submit"> 
 				</form>
-				
-				
-				<script>
-				 
-				
-				let high_form = document.getElementById('high_contact'); 
-				let high_name = document.getElementById('high_name'); 
-				let high_email = document.getElementById('high_email');  
-				let high_reason = document.getElementById('high_reason');
-				let high_subject = document.getElementById('high_subject');
-				let high_message = document.getElementById('high_message');
-				let high_term = document.getElementById('high_term');      
-				let submit_button = document.getElementById('high_submit'); 
-				
-				let high_thanks = document.getElementById('high_thanks'); 
-				
-				const emailIsValid = email => {
-				  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-				}
-				 
- 
-				function high_validate(input){
-													 											   
-					if (input.value.length < 1) {        
-						input.style.borderColor = '#F70000';
-																	 
-						input.removeAttribute('valid') 
-						input.setAttribute('invalid', 'invalid')  
-						input.parentNode.querySelector('small.error-message').innerHTML = 'You\'re missing something';
-					} else if (input.type == "email") {         
-					 
-						if (emailIsValid(high_email.value)) {                        
-							high_email.setAttribute('valid', 'valid')
-							high_email.style.borderColor = '#5bb959';                                                               
-							input.parentNode.querySelector('small.error-message').innerHTML = '';
-						} else {
-							high_email.removeAttribute('valid') 
-							high_email.style.borderColor = '#f70000'; 
-							input.parentNode.querySelector('small.error-message').innerHTML = 'Please enter valid email address'; 
-						} 
-					} else {                               
-					 
-						input.removeAttribute('invalid')  
-						input.setAttribute('valid', 'valid')  
-						input.style.borderColor = '#5bb959';
-						input.parentNode.querySelector('small.error-message').innerHTML = '';
-					}
-					
-				}
-				 
-				const validate = (e) => {
-				  e.preventDefault();
-				   
-				  if (high_name.value === "") {
-					
-					high_name.parentNode.querySelector('small.error-message').innerHTML = 'You have a name?';
-					high_name.style.borderColor = '#F70000';
-					return false;
-				  }
-					
-				  if (high_email.value === "") {
-					
-					high_email.parentNode.querySelector('small.error-message').innerHTML = 'You need an email';
-					high_email.style.borderColor = '#F70000'; 
-					return false;
-				  }
-				  if (!emailIsValid(high_email.value)) {
-					high_email.parentNode.querySelector('small.error-message').innerHTML = 'Please enter a valid email address';
-					high_email.style.borderColor = '#F70000';
-					high_email.focus();
-					return false;
-				  }                     
+					<script>
 				  
-				  if (high_reason.value === "") {
-					
-					high_reason.parentNode.querySelector('small.error-message').innerHTML = 'Please make a selection';
-					high_reason.style.borderColor = '#F70000';
-					return false;
-				  }
-				  
-				  if (high_subject.value === "") {
-					
-					high_subject.parentNode.querySelector('small.error-message').innerHTML = 'Please add a subject to discuss.';
-					high_subject.style.borderColor = '#F70000';
-					return false;
-				  }
-				  
-				  if (high_message.value === "") {
-					
-					high_message.parentNode.querySelector('small.error-message').innerHTML = 'What have you got on your mind?';
-					high_message.style.borderColor = '#F70000';
-					return false;
-				  }    
-				  if (high_term.checked == false) {
-					high_term.parentNode.querySelector('small.error-message').innerHTML = 'You gotta check the box';
-					high_term.style.borderColor = '#F70000';
-					return false;
-				  }
-				  
-				  high_thanks_message();
-				 // alert('wtf')
-				  //return true; // Can submit the form data to the server
-				}
-				
-				function high_thanks_message() {
-					
-					high_form.style.display = 'none';
-					high_thanks.style.display = 'block';
-					
-				}
-
-						 
-			 submit_button.addEventListener('click', validate);	
+			function onSubmit(token) {
+				document.getElementById("high_contact").submit();
+			}
 				 
 				</script> 
 			</section>

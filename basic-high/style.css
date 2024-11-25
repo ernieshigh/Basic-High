@@ -4,7 +4,7 @@
 	Author: ernie
 	Author URI: http://ernieshigh.com/c
 	Description: A plain no extras theme framework
-	Version: 0.0.1	Requires at least: 5.0	Tested up to: 6.2	Requires PHP: 7.0
+	Version: 0.1.3	Requires at least: 6.0	Tested up to: 6.4.2	Requires PHP: 8.0
 	License: GNU General Public License v2 or later
 	License URI: https://www.gnu.org/licenses/gpl-3.0.html
 	Text Domain: 'basic-high'
@@ -38,7 +38,13 @@
 
 
 /****  Defaults  ****/
- 
+
+
+html {
+	line-height: 1.15;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
 
 html,
 body {
@@ -49,7 +55,7 @@ body {
 	color: #1d2a53;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 20px;
 	line-height: 1.3;
 	letter-spacing: 1px;
 	scroll-behavior: smooth;
@@ -101,14 +107,10 @@ figure {
 	height: 200px;
 	overflow: hidden;
 }
-
-.featured-figure {
-    display: flex;
-    justify-content: center;
-    height: 170px;
-    margin: 0.5em 0;
-    text-align: center;
+img.featured.wp-post-image {
+   width: 100%;
 }
+
 
 
 /*** colors ***/
@@ -859,7 +861,9 @@ form {
     display: inline-block;
     width: 100%;
 }
- 
+
+.high-form input:invalid { 
+}
 .high-form input[type="submit"] {
     max-width: 325px;
     margin: 1em auto;
@@ -876,153 +880,6 @@ form {
 	
 }
 
-
-/** filter **/
-
-h2.post-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 300px;
-    margin: .5rem auto;
-}
-
-section.filter-section {
-    width: 100%;
-    max-width: 1280px;
-    margin: 1em auto;
-    padding: 1em;
-}
-
-
-.row.filter-cat-row {
-    flex-flow: row nowrap;
-	justify-content: space-between;
-	
-}
-
-
-.left-col.filter-col {
-    flex: 0 0 24%;
-}
-
-.right-col.filter-col {
-    flex: 0 0 75%;
-}
-
-p.notice{    margin: .5em;
-    font-size: .8em;
-}
-
-ul.seal-list {
-    display: flex;
-	flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: .5em;
-}
-
-ul.seal-list li{ 
-	flex: 0 0 15%;
-}
-
-.result-box {
-    display: flex;
-    flex-flow: column; 
-	margin: .5em auto;
-}
-
-.filtered-content{
-	display: flex;
-	flex-flow: row wrap;
-	margin: .5rem;
-	gap: 1em; 
-}
-
-.filtered-content .entry-meta {
-    flex: 0 0 65%;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.filtered-content  figure {
-    flex: 0 0 150px;
-	margin: 0;
-} 
-
-.cat-menu {
-    padding: 0;
-    margin: 0;
-}
-
-.cat-menu ul {
-    padding-left: 0; 
-}
-
-li.cat-icon {
-    display: flex;
-	align-items: center;
-}
-
- 
-.download-cat.inactive {
-	position: relative; 
-    overflow: hidden;
-}
-
-.download-cat.inactive:after {
-    content: '';
-    position: absolute;
-    top: 14px;
-    right: 20px;
-    display: inline-block;
-    background-image: url(assets/images/down.svg);
-    background-size: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 40px;
-    width: 40px;
-}
-
-.download-cat.active {
-	height: auto;
-}
-.download-cat.active:after{
-    content: '';
-    position: absolute;
-    top: 14px;
-    right: 20px;
-    display: inline-block;
-	background-image:  url(assets/images/arrow.alt.right.svg); 
-    background-size: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 40px;
-    width: 40px;
-}
-
-
-img.img-responsive {
-    width: 50px;
-	height: 50px;
-    margin-right: .5em;
-}
-.filtered-content a.read-more{margin: 0;}
-
- 
-
-input[type=checkbox][disabled] ~ label{
-	background-color: #444;
-	border: 0;
-	outline:1px solid #888;  
-	opacity: .5;
-}
-
-input[type=checkbox][disabled] ~ label{
-	background-color: transparent;
-	outline: none;
-}
 
 
 /**** Footer  ****/
@@ -1389,9 +1246,7 @@ p.foot-text {
 	main{margin-top: 90px;}
 	main.single-main{margin-top: 290px;}
 	
-	h1, h2, .post-title{
-		margin: 1rem auto;
-	}
+	h1, h2, .post-titlemargin: 1rem auto;
 	.post-entry{margin-bottom: 0;}
 	
 	footer.entry-meta{

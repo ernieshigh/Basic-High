@@ -90,12 +90,8 @@ if(isset($_POST['high_submit'])){
 	//Email headers
 	$headers = array('Content-Type: text/html; charset=UTF-8', 'From: Ernies High <ernie@ernieshigh.dev>', 'Reply-To: <' . $contact_email . ' >' );
 	
-	if(!empty($high_human)){
-		return;
-	}else{
-		//Send email  
-		wp_mail( $to, $subject, $message, $headers );
-	}
+	//Send email  
+	wp_mail( $to, $subject, $message, $headers );
 	
 	
 	
